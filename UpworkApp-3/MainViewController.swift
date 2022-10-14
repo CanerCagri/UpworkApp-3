@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
         text.textAlignment = .center
         text.layer.borderWidth = 2
         text.layer.borderColor = UIColor.systemGray4.cgColor
-        text.layer.cornerRadius = 10
+        text.layer.cornerRadius = 25
         text.textColor = .label
         text.tintColor = .label
         text.font = UIFont.preferredFont(forTextStyle: .title2)
@@ -93,15 +93,20 @@ class MainViewController: UIViewController {
         button.setTitle("Download", for: .normal)
         button.backgroundColor = .systemGreen
         button.titleLabel?.textColor = .darkGray
-        button.layer.cornerRadius = 12
+        button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         setupUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     func configureViewController() {
@@ -113,11 +118,13 @@ class MainViewController: UIViewController {
     }
     
     @objc func leftBarButtonTapped() {
-        
+        let settingsVc = SettingsViewController()
+        navigationController?.pushViewController(settingsVc, animated: true)
     }
     
     @objc func rightBarButtonTapped() {
-        
+        let trendsVc = TrendsViewController()
+        navigationController?.pushViewController(trendsVc, animated: true)
     }
     
     func setupUI() {
@@ -152,70 +159,22 @@ class MainViewController: UIViewController {
         view.addSubview(downloadButton)
         downloadButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-100)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
             make.height.equalTo(50)
         }
         
         view.addSubview(textField)
         textField.snp.makeConstraints { make in
             make.bottom.equalTo(downloadButton.snp.top).offset(-20)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
             make.height.equalTo(50)
         }
     }
     
-  
-    
     @objc func downloadButtonTapped() {
-        
-        let url = "https://www.tiktok.com/@bayashi.tiktok/video/7129095826332241154?is_copy_url=1&is_from_webapp=v1"
-
-        guard let videoURL = URL(string: url) else { return }
-
-                guard let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-
-                // check if the file already exist at the destination folder if you don't want to download it twice
-                if !FileManager.default.fileExists(atPath: documentsDirectoryURL.appendingPathComponent(videoURL.lastPathComponent).path) {
-
-                    // set up your download task
-                    URLSession.shared.downloadTask(with: videoURL) { (location, response, error) -> Void in
-
-                        // use guard to unwrap your optional url
-                        guard let location = location else { return }
-
-                        // create a deatination url with the server response suggested file name
-                        let destinationURL = documentsDirectoryURL.appendingPathComponent(response?.suggestedFilename ?? videoURL.lastPathComponent)
-
-                        do {
-
-                            try FileManager.default.moveItem(at: location, to: destinationURL)
-
-                            PHPhotoLibrary.requestAuthorization({ (authorizationStatus: PHAuthorizationStatus) -> Void in
-
-                                // check if user authorized access photos for your app
-                                if authorizationStatus == .authorized {
-                                    PHPhotoLibrary.shared().performChanges({
-                                        PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: destinationURL)}) { completed, error in
-                                            if completed {
-                                                print("Video asset created")
-                                            } else {
-                                                print(error)
-                                            }
-                                    }
-                                }
-                            })
-
-                        } catch { print(error) }
-
-                    }.resume()
-
-                } else {
-                    print("File already exists at destination url")
-                }
-     
+        //        let url = "https://www.tiktok.com/@bayashi.tiktok/video/7129095826332241154?is_copy_url=1&is_from_webapp=v1"
     }
-    
 }
 
