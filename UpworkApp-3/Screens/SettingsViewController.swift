@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
     }
     
     func configureViewController() {
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .systemGray
         title = "Settings"
     }
     

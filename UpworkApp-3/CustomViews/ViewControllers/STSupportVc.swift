@@ -30,6 +30,8 @@ class STSupportVc: UIViewController {
     }
     
     private func configureTableView() {
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+        tableView.separatorColor = UIColor.white
         tableView.backgroundColor = .clear
         tableView.rowHeight = 30
         tableView.tableFooterView = UIView(frame: .zero)
@@ -66,12 +68,20 @@ extension STSupportVc: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.reuseID) as! SettingsCell
         let data = rowData[indexPath.row]
         cell.set(data: data)
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = tableView.backgroundColor
         cell.contentView.backgroundColor = tableView.backgroundColor
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = rowData[indexPath.row]
+        let warning = UIAlertController(title: "\(data.name) clicked", message: "", preferredStyle: .alert)
+        warning.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(warning, animated: true)
     }
 }
 
