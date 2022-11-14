@@ -11,7 +11,9 @@ class STSupportVc: UIViewController {
     
     var tableView = UITableView()
     
-    var rowData: [Model] = [Model(image: "message.fill", name: "Contact Us"), ]
+    var rowData: [Model] = [Model(image: "message.fill", name: "Contact Us"),
+                            Model(image: "questionmark.circle", name: "Help")
+    ]
 
     var headerLabel: UILabel = {
         var label = UILabel()

@@ -87,7 +87,7 @@ class SettingsViewController: UIViewController {
             make.top.equalTo(shareContainer.snp.bottom).offset(spaceBetweenContainers - 20)
             make.leading.equalTo(contentView).offset(padding)
             make.trailing.equalTo(contentView).offset(-padding)
-            make.height.equalTo(60)
+            make.height.equalTo(100)
         }
         
         legalContainer.snp.makeConstraints { make in

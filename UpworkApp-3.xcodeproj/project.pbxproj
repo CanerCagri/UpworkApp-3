@@ -21,6 +21,8 @@
 		019B2AF929081C0D00319ADA /* STLegalVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B2AF829081C0D00319ADA /* STLegalVc.swift */; };
 		019B2AFB2908304200319ADA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B2AFA2908304200319ADA /* Model.swift */; };
 		019B2B002908320400319ADA /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B2AFF2908320400319ADA /* SettingsCell.swift */; };
+		01D522C8292273D800FA5F43 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D522C7292273D800FA5F43 /* Song.swift */; };
+		01D522CC29227B5200FA5F43 /* SongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D522CB29227B5200FA5F43 /* SongsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		019B2AF829081C0D00319ADA /* STLegalVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLegalVc.swift; sourceTree = "<group>"; };
 		019B2AFA2908304200319ADA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		019B2AFF2908320400319ADA /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		01D522C7292273D800FA5F43 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		01D522CB29227B5200FA5F43 /* SongsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +76,11 @@
 		0136918028F6E52C00569BF3 /* UpworkApp-3 */ = {
 			isa = PBXGroup;
 			children = (
-				018220F529083BE600FAAD5A /* SupportFiles */,
-				018220F429083BD600FAAD5A /* Models */,
-				019B2AEF29081B2100319ADA /* Extensions */,
-				019B2AE92908162D00319ADA /* CustomViews */,
 				019B2AE82908161900319ADA /* Screens */,
+				019B2AE92908162D00319ADA /* CustomViews */,
+				018220F429083BD600FAAD5A /* Models */,
+				018220F529083BE600FAAD5A /* SupportFiles */,
+				019B2AEF29081B2100319ADA /* Extensions */,
 				0136918F28F6E52D00569BF3 /* Info.plist */,
 			);
 			path = "UpworkApp-3";
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				019B2AFA2908304200319ADA /* Model.swift */,
+				01D522C7292273D800FA5F43 /* Song.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				019B2AFF2908320400319ADA /* SettingsCell.swift */,
+				01D522CB29227B5200FA5F43 /* SongsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -232,6 +238,8 @@
 				019B2AF529081BED00319ADA /* STShareVc.swift in Sources */,
 				019B2AFB2908304200319ADA /* Model.swift in Sources */,
 				019B2AEC2908167300319ADA /* STSubscriptionVc.swift in Sources */,
+				01D522C8292273D800FA5F43 /* Song.swift in Sources */,
+				01D522CC29227B5200FA5F43 /* SongsCell.swift in Sources */,
 				0136918428F6E52C00569BF3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

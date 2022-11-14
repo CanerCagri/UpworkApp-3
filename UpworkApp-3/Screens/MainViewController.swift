@@ -174,7 +174,9 @@ class MainViewController: UIViewController {
     }
     
     @objc func downloadButtonTapped() {
-        //        let url = "https://www.tiktok.com/@bayashi.tiktok/video/7129095826332241154?is_copy_url=1&is_from_webapp=v1"
+        let warning = UIAlertController(title: "Download clicked", message: "", preferredStyle: .alert)
+        warning.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(warning, animated: true)
     }
 }
 
